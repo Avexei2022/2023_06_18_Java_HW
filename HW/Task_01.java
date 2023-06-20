@@ -17,7 +17,12 @@ public class Task_01 {
             if (str.startsWith("write")) {
                 createEntryPHB();
             } else if (str.startsWith("read")) {
-                printPhoneBook();
+                if (phoneBookMap.isEmpty()) {
+                    System.out.println("Телефонная книга пуста.");
+                } else {
+                    System.out.println("\nТелефонная книга:");
+                    printPhoneBook();
+                }
             } else {
                 if (!str.equalsIgnoreCase("exit")) {
                     printNote();
@@ -46,7 +51,9 @@ public class Task_01 {
             tempArrayList.add(phone);
             phoneBookMap.put(surname, tempArrayList);
         }
+        System.out.println("Телефонная книжка дополнена записью:");
         System.out.printf("%s: %s\n", surname, phoneBookMap.get(surname));
+        System.out.println();
     }
 
     public static void printPhoneBook() {
@@ -60,6 +67,7 @@ public class Task_01 {
                 }
             }
         }
+        System.out.println();
     }
 
     public static Integer GetMax() {
